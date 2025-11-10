@@ -1,10 +1,16 @@
 ﻿namespace SmartFridge.Tests;
 
-public class UnitTest1
+public class SmartFridgeTests
 {
     [Fact]
-    public void Test1()
+    public void AddProduct_WhenCalled_ShouldAddProductToList()
     {
+        var fridge = new SmartFridge(); 
+        var product = new Product("Milk", DateTime.Now.AddDays(5));
+      
+        fridge.AddProduct(product);
 
+        var products = fridge.GetAllProducts();
+        Assert.Contains(product, products);
     }
 }
