@@ -23,7 +23,7 @@ public class SmartFridge
     }
     public List<Product> GetExpiredProducts()
     {
-        var now = DateTime.Now;
+        var now = DateTime.UtcNow;
         return _products.Where(p => p.ExpirationDate < now).ToList();
     }
 
